@@ -16,7 +16,7 @@ export const Grid = styled.div`
   padding: 10px;
 
   width: 500px;
-  max-height: 600px;
+  max-height: 500px;
 `;
 
 export const InputContainer = styled.div`
@@ -27,7 +27,7 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
   width: 100%;
   padding: 0px;
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 2rem;
   font-weight: bold;
   box-sizing: border-box;
@@ -36,10 +36,6 @@ export const Input = styled.input`
   border: 3px solid #d3d6da;
 
   caret-color: transparent;
-  
-  @media screen and (max-width: 768px) {
-    font-size: 3.5rem;
-  }
 
   @media screen and (max-width: 640px) {
     font-size: 2.5rem;
