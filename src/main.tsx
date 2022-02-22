@@ -4,11 +4,12 @@ import { Global } from "@emotion/react";
 import normalize from "emotion-normalize";
 
 import App from "./App";
+import { GlobalStyles } from "./globalStyles";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Global styles={normalize} />
     <App />
+    <Global styles={[normalize, GlobalStyles]} />
   </React.StrictMode>,
   document.getElementById("root")
 );

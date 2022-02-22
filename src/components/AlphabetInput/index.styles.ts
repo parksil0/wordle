@@ -15,7 +15,7 @@ export const Grid = styled.div`
   gap: 5px;
   padding: 10px;
 
-  width: 500px;
+  max-width: 500px;
   max-height: 500px;
 `;
 

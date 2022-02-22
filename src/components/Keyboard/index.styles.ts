@@ -6,8 +6,8 @@ export const Grid = styled.section`
   flex-direction: column;
   gap: 5px;
   max-width: 700px;
-  height: 200px;
-  padding: 0px 10px;
+  max-height: 200px;
+  padding: 0px 10px 10px 10px;
 `;
 
 export const Row = styled.div`
