@@ -1,4 +1,4 @@
-import { Grid, Input, InputContainer, Wrapper } from "./index.styles";
+import { Grid, Input, InputContainer, Wrapper } from './index.styles';
 
 const Index = () => {
   return (

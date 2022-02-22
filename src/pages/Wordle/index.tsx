@@ -1,9 +1,10 @@
-import { Wrapper } from "./index.styles";
-import Input from "../../components/AlphabetInput";
-import Keyboard from "../../components/Keyboard";
-import { useState } from "react";
-import AlertPortal, { Alert } from "../../components/Alert";
-import { ERROR_MESSAGE } from "../../constants";
+import { useState } from 'react';
+
+import AlertPortal, { Alert } from '../../components/Alert';
+import Input from '../../components/AlphabetInput';
+import Keyboard from '../../components/Keyboard';
+import { ERROR_MESSAGE } from '../../constants';
+import { Wrapper } from './index.styles';
 
 const Index = () => {
   const [isShowAlert, setIsShowAlert] = useState(false);

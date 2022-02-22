@@ -1,5 +1,5 @@
-import Wordle from "./pages/Wordle";
-import Header from "./components/Header";
+import Header from './components/Header';
+import Wordle from './pages/Wordle';
 
 function App() {
   return (

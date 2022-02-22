@@ -1,5 +1,6 @@
-import styled from "@emotion/styled";
-import Button from "../Button";
+import styled from '@emotion/styled';
+
+import Button from '../Button';
 
 export const Grid = styled.section`
   display: flex;
@@ -15,8 +16,8 @@ export const Row = styled.div`
   gap: 5px;
 `;
 
-export const KeyboardButton = styled(Button) <{ flex?: 1 | 1.5 }>`
-display: flex;
+export const KeyboardButton = styled(Button)<{ flex?: 1 | 1.5 }>`
+  display: flex;
   flex: ${({ flex }) => (flex ? `${flex}` : `1`)};
   justify-content: center;
   align-items: center;
