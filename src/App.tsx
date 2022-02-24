@@ -1,5 +1,13 @@
+import Header from './components/Header';
+import Wordle from './pages/Wordle';
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Header />
+      <Wordle />
+    </>
+  );
 }
 
 export default App;
