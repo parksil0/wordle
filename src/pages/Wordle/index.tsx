@@ -34,11 +34,11 @@ const Index = () => {
       return;
     }
 
-    if (answer === word) {
+    if (answer === word.toLowerCase()) {
       printAlertMessage('정답입니다!');
     }
 
-    if (VALID_WORD_LIST.includes(word)) {
+    if (VALID_WORD_LIST.includes(word.toLowerCase())) {
       if (!words[0]) setWords([word]);
       else setWords([...words, word]);
 
