@@ -6,9 +6,15 @@ export const Grid = styled.section`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  max-width: 700px;
+
+  width: 500px;
   max-height: 200px;
   padding: 0px 10px 10px 10px;
+
+  @media screen and (max-width: 520px) {
+    width: 100%;
+    padding: 0px 0px 10px 0px;
+  }
 `;
 
 export const Row = styled.div`
