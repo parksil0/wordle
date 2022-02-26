@@ -6,9 +6,10 @@ import Keyboard from '../../components/Keyboard';
 import { ERROR_MESSAGE } from '../../constants';
 import VALID_WORD_LIST from '../../constants/validWordList';
 import { BoardState, BoxState } from '../../types';
+import { getAnswer } from '../../utils';
 import { Wrapper } from './index.styles';
 
-const answer = VALID_WORD_LIST[Math.floor(Math.random() * VALID_WORD_LIST.length)];
+const answer = getAnswer();
 console.log(answer);
 
 type CurrentRowCalculateResult = [BoxState, BoxState, BoxState, BoxState, BoxState];
