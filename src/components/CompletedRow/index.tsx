@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 
 import { AlphabetBoxAnimation, BoxState } from '../../types';
-import { AlphabetBox } from '../AlphabetBox';
+import AlphabetBox from '../AlphabetBox';
 import { BoxContainer } from '../BoxContainer';
 
 interface Props {
   word: string;
   rowState: BoxState[];
+  rowIndex: number;
 }
 
-const index = ({ word, rowState }: Props) => {
+const index = ({ word, rowState, rowIndex }: Props) => {
   const [animation, setAnimation] = useState<AlphabetBoxAnimation[]>(
     Array.from({ length: 5 }, () => undefined),
   );
@@ -44,14 +45,14 @@ const index = ({ word, rowState }: Props) => {
   }, [rowState]);
 
   return (
-    <BoxContainer>
+    <BoxContainer data-testid={`completed-row-${rowIndex + 1}`}>
       {word.split('').map((alphabet, index) => (
         <AlphabetBox
           key={`${alphabet}-${index}`}
-          status={animation[index]}
-          state={color[index]}>
-          {alphabet}
-        </AlphabetBox>
+          animation={animation[index]}
+          boxState={color[index]}
+          alphabet={alphabet}
+        />
       ))}
     </BoxContainer>
   );

@@ -1,5 +1,5 @@
 import { EmptyRow } from '../../types';
-import { AlphabetBox } from '../AlphabetBox';
+import AlphabetBox from '../AlphabetBox';
 import { BoxContainer } from '../BoxContainer';
 
 interface Props {
@@ -10,7 +10,7 @@ const index = ({ emptyRow }: Props) => {
   return (
     <BoxContainer>
       {emptyRow.map((value, index) => (
-        <AlphabetBox key={`${value}-${index}`}>{value}</AlphabetBox>
+        <AlphabetBox key={`${value}-${index}`} alphabet={value} />
       ))}
     </BoxContainer>
   );

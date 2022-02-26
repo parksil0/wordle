@@ -21,7 +21,12 @@ const index = ({ word, words, rowState, isCurruentRowJiggle }: Props) => {
     <Wrapper>
       <Grid>
         {words.map((word, index) => (
-          <CompletedRow key={`${word}-${index}`} word={word} rowState={rowState[index]} />
+          <CompletedRow
+            key={`${word}-${index}`}
+            word={word}
+            rowState={rowState[index]}
+            rowIndex={index}
+          />
         ))}
 
         {words.length === 6 ? null : (
