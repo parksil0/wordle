@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
 
+import {
+  EACH_BOX_FLIP_ANIMATION_DELAY,
+  SWITCH_FLIP_COLOR_DELAY,
+  WORD_MAX_LENGTH,
+} from '../../constants';
 import { AlphabetBoxAnimation, BoxState } from '../../types';
 import AlphabetBox from '../AlphabetBox';
 import { BoxContainer } from '../BoxContainer';
@@ -12,10 +17,10 @@ interface Props {
 
 const index = ({ word, rowState, rowIndex }: Props) => {
   const [animation, setAnimation] = useState<AlphabetBoxAnimation[]>(
-    Array.from({ length: 5 }, () => undefined),
+    Array.from({ length: WORD_MAX_LENGTH }, () => undefined),
   );
   const [color, setColor] = useState<BoxState[]>(
-    Array.from({ length: 5 }, () => undefined),
+    Array.from({ length: WORD_MAX_LENGTH }, () => undefined),
   );
 
   useEffect(() => {
@@ -25,7 +30,7 @@ const index = ({ word, rowState, rowIndex }: Props) => {
           const copyAnimation = [...animation];
           copyAnimation[index] = 'flip';
           setAnimation(copyAnimation);
-        }, (index + 1) * 500);
+        }, (index + 1) * EACH_BOX_FLIP_ANIMATION_DELAY);
       });
     }
   }, [word]);
@@ -39,7 +44,7 @@ const index = ({ word, rowState, rowIndex }: Props) => {
             copyColor[index] = rowState[index];
             return [...copyColor];
           });
-        }, (index + 1) * 600);
+        }, (index + 1) * SWITCH_FLIP_COLOR_DELAY);
       });
     }
   }, [rowState]);

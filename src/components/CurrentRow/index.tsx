@@ -1,3 +1,4 @@
+import { WORD_MAX_LENGTH } from '../../constants';
 import AlphabetBox from '../AlphabetBox';
 import { BoxContainer } from '../BoxContainer';
 
@@ -8,7 +9,9 @@ interface Props {
 
 const index = ({ word, isCurruentRowJiggle }: Props) => {
   const emptyWord =
-    word.length < 5 ? Array.from({ length: 5 - word.length }, () => '') : [];
+    word.length < WORD_MAX_LENGTH
+      ? Array.from({ length: WORD_MAX_LENGTH - word.length }, () => '')
+      : [];
 
   return (
     <BoxContainer data-testid="current-row" isCurruentRowJiggle={isCurruentRowJiggle}>

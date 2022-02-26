@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react';
 import AlertPortal, { Alert } from '../../components/Alert';
 import Board from '../../components/Board';
 import Keyboard from '../../components/Keyboard';
-import { ERROR_MESSAGE } from '../../constants';
+import {
+  ALERT_ANIMATION_DELAY,
+  ALERT_MESSAGE,
+  ALERT_TIME_LIMIT,
+  WORD_MAX_LENGTH,
+} from '../../constants';
 import VALID_WORD_LIST from '../../constants/validWordList';
 import { BoardState, BoxState } from '../../types';
 import { getAnswer } from '../../utils';
@@ -28,14 +33,14 @@ const Index = () => {
   };
 
   const onKeydownEnter = () => {
-    if (word.length < 5) {
-      printAlertMessage(ERROR_MESSAGE.NOT_ENOUGH_LETTERS);
+    if (word.length < WORD_MAX_LENGTH) {
+      printAlertMessage(ALERT_MESSAGE.NOT_ENOUGH_LETTERS);
       setIsCurruentRowJiggle(true);
       return;
     }
 
     if (answer === word.toLowerCase()) {
-      printAlertMessage('정답입니다!');
+      printAlertMessage(ALERT_MESSAGE.CORRECT);
     }
 
     if (VALID_WORD_LIST.includes(word.toLowerCase())) {
@@ -70,7 +75,7 @@ const Index = () => {
 
       setWord('');
     } else {
-      printAlertMessage(ERROR_MESSAGE.NOT_IN_WORD_LIST);
+      printAlertMessage(ALERT_MESSAGE.NOT_IN_WORD_LIST);
       setIsCurruentRowJiggle(true);
       return;
     }
@@ -87,7 +92,7 @@ const Index = () => {
   };
 
   const onKeydownWord = (key: string) => {
-    if (word.length >= 5) return;
+    if (word.length >= WORD_MAX_LENGTH) return;
     setWord((prev) => prev + key);
   };
 
@@ -95,16 +100,17 @@ const Index = () => {
     if (isCurruentRowJiggle)
       setTimeout(() => {
         setIsCurruentRowJiggle(false);
-      }, 2000);
+      }, ALERT_TIME_LIMIT);
   }, [isCurruentRowJiggle]);
 
   useEffect(() => {
-    if (isShowAlert) setTimeout(() => setIsShowAlert(false), 1950);
+    if (isShowAlert)
+      setTimeout(() => setIsShowAlert(false), ALERT_TIME_LIMIT - ALERT_ANIMATION_DELAY);
   }, [isShowAlert]);
 
   useEffect(() => {
     if (words.length > 5) {
-      printAlertMessage(`정답은 ${answer}입니다!`);
+      printAlertMessage(`${ALERT_MESSAGE}${answer}`);
     }
   }, [words]);
 

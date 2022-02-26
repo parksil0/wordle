@@ -1,3 +1,4 @@
+import { EMPTY_ROW_MAX_LENGTH, ROW_MAX_LENGTH } from '../../constants';
 import { BoardState, EmptyRow as EmptyRowType } from '../../types';
 import CompletedRow from '../CompletedRow';
 import CurrentRow from '../CurrentRow';
@@ -13,8 +14,14 @@ interface Props {
 
 const index = ({ word, words, rowState, isCurruentRowJiggle }: Props) => {
   const emptyRow: EmptyRowType[] | null =
-    words.length < 6
-      ? Array.from({ length: 5 - words.length }, () => ['', '', '', '', ''])
+    words.length < ROW_MAX_LENGTH
+      ? Array.from({ length: EMPTY_ROW_MAX_LENGTH - words.length }, () => [
+          '',
+          '',
+          '',
+          '',
+          '',
+        ])
       : null;
 
   return (
@@ -29,7 +36,7 @@ const index = ({ word, words, rowState, isCurruentRowJiggle }: Props) => {
           />
         ))}
 
-        {words.length === 6 ? null : (
+        {words.length === ROW_MAX_LENGTH ? null : (
           <CurrentRow word={word} isCurruentRowJiggle={isCurruentRowJiggle} />
         )}
 

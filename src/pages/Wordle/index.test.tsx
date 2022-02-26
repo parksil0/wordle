@@ -1,13 +1,15 @@
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { afterEach, expect, test, vi } from 'vitest';
 
-import { ERROR_MESSAGE } from '../../constants';
+import { ALERT_MESSAGE } from '../../constants';
 import Wordle from './';
 
 // 답은 항상 apple로 한다.
+const answer = 'apple';
+
 vi.mock('../../utils/index.ts', () => {
   return {
-    getAnswer: vi.fn(() => 'apple'),
+    getAnswer: vi.fn(() => answer),
   };
 });
 
@@ -21,7 +23,7 @@ test('다섯자리 알파벳을 입력하지 않고 엔터 키 입력 시 alert�
   fireEvent.keyDown(container, { key: 'A' });
   fireEvent.keyDown(container, { key: 'Enter' });
 
-  expect(getByText(ERROR_MESSAGE.NOT_ENOUGH_LETTERS)).toBeTruthy();
+  expect(getByText(ALERT_MESSAGE.NOT_ENOUGH_LETTERS)).toBeTruthy();
 });
 
 test('backspace키 입력 시 알파벳은 지워진다.', () => {
@@ -46,7 +48,7 @@ test('유효하지 않은 단어 입력 시 alert창이 호출된다.', () => {
   fireEvent.keyDown(container, { key: 'E' });
   fireEvent.keyDown(container, { key: 'Enter' });
 
-  expect(getByText(ERROR_MESSAGE.NOT_IN_WORD_LIST)).toBeTruthy();
+  expect(getByText(ALERT_MESSAGE.NOT_IN_WORD_LIST)).toBeTruthy();
 });
 
 test('현재 row에서 다섯자 이상 입력해도 다섯자만 렌더링된다.', () => {
@@ -86,7 +88,7 @@ test('정답 입력 시 alert창과 함께 "정답입니다!"가 호출된다.',
   fireEvent.keyDown(container, { key: 'E' });
   fireEvent.keyDown(container, { key: 'Enter' });
 
-  expect(getByText('정답입니다!')).toBeTruthy();
+  expect(getByText(ALERT_MESSAGE.CORRECT)).toBeTruthy();
 });
 
 test('정답을 맞추지 못하면 정답을 알려주는 alert창을 호출한다', () => {
@@ -136,5 +138,5 @@ test('정답을 맞추지 못하면 정답을 알려주는 alert창을 호출한
     fireEvent.keyDown(container, { key: key });
   });
 
-  expect(getByText('정답은 apple입니다!')).toBeTruthy();
+  expect(getByText(`${ALERT_MESSAGE}${answer}`)).toBeTruthy();
 });
