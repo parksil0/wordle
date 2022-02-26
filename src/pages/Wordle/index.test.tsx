@@ -5,11 +5,9 @@ import { ALERT_MESSAGE } from '../../constants';
 import Wordle from './';
 
 // 답은 항상 apple로 한다.
-const answer = 'apple';
-
 vi.mock('../../utils/index.ts', () => {
   return {
-    getAnswer: vi.fn(() => answer),
+    getAnswer: vi.fn(() => 'apple'),
   };
 });
 
@@ -138,5 +136,5 @@ test('정답을 맞추지 못하면 정답을 알려주는 alert창을 호출한
     fireEvent.keyDown(container, { key: key });
   });
 
-  expect(getByText(`${ALERT_MESSAGE}${answer}`)).toBeTruthy();
+  expect(getByText(`${ALERT_MESSAGE}apple`)).toBeTruthy();
 });
