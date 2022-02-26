@@ -15,7 +15,6 @@ export const AlphabetBox = styled.div<{
   font-weight: bold;
   vertical-align: middle;
   box-sizing: border-box;
-  color: var(--tile-text-color);
   text-transform: uppercase;
   user-select: none;
   border: 2px solid #d3d6da;

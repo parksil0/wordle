@@ -27,19 +27,34 @@ const Index = () => {
       <Header>
         <IconContainer>
           <Button onClick={onClickIcon}>
-            <Icon href={`${MenuIcon}#menu`} width="20px" height="20px" />
+            <Icon href={`${MenuIcon}#menu`} width="20px" height="20px" title="menu" />
           </Button>
           <Button onClick={onClickIcon}>
-            <Icon href={`${SearchIcon}#search`} width="24px" height="24px" />
+            <Icon
+              href={`${SearchIcon}#search`}
+              width="24px"
+              height="24px"
+              title="search"
+            />
           </Button>
         </IconContainer>
         <Title>WORDLE</Title>
         <IconContainer>
           <Button onClick={onClickIcon}>
-            <Icon href={`${StatisticsIcon}#statistics`} width="24px" height="24px" />
+            <Icon
+              href={`${StatisticsIcon}#statistics`}
+              width="24px"
+              height="24px"
+              title="statistics"
+            />
           </Button>
           <Button onClick={onClickIcon}>
-            <Icon href={`${SettingsIcon}#settings`} width="24px" height="24px" />
+            <Icon
+              href={`${SettingsIcon}#settings`}
+              width="24px"
+              height="24px"
+              title="settings"
+            />
           </Button>
         </IconContainer>
       </Header>
