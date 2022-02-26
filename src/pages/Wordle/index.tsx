@@ -98,7 +98,7 @@ const Index = () => {
   }, [isCurruentRowJiggle]);
 
   useEffect(() => {
-    if (isShowAlert) setTimeout(() => setIsShowAlert(false), 1930);
+    if (isShowAlert) setTimeout(() => setIsShowAlert(false), 1950);
   }, [isShowAlert]);
 
   useEffect(() => {
