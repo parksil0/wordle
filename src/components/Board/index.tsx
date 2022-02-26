@@ -27,6 +27,7 @@ const index = ({ word, words, rowState, isCurruentRowJiggle }: Props) => {
   return (
     <Wrapper>
       <Grid>
+        {/* 유효한 단어가 입력된 row */}
         {words.map((word, index) => (
           <CompletedRow
             key={`${word}-${index}`}
@@ -36,10 +37,12 @@ const index = ({ word, words, rowState, isCurruentRowJiggle }: Props) => {
           />
         ))}
 
+        {/* 현재 작성중인 row */}
         {words.length === ROW_MAX_LENGTH ? null : (
           <CurrentRow word={word} isCurruentRowJiggle={isCurruentRowJiggle} />
         )}
 
+        {/* 비어있는 row */}
         {emptyRow?.map((row, index) => (
           <EmptyRow key={index} emptyRow={row} />
         ))}

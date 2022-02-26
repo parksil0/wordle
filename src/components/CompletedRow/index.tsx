@@ -23,6 +23,7 @@ const index = ({ word, rowState, rowIndex }: Props) => {
     Array.from({ length: WORD_MAX_LENGTH }, () => undefined),
   );
 
+  // box가 하나씩 flip animation이 적용될 수 있도록 settimeout을 설정
   useEffect(() => {
     if (word[0]) {
       animation.forEach((_, index) => {
@@ -35,6 +36,7 @@ const index = ({ word, rowState, rowIndex }: Props) => {
     }
   }, [word]);
 
+  // box가 반쯤 뒤집힐 쯤 배경색이 변하도록 settimeout 설정
   useEffect(() => {
     if (rowState) {
       rowState.forEach((_, index) => {

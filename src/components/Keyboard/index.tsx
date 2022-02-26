@@ -16,6 +16,7 @@ interface Props {
 }
 
 const Index = ({ onKeydownWord, onKeydownEnter, onKeydownBackspace }: Props) => {
+  // keydown(enter, backspace, a-z) 이벤트 설정
   useEffect(() => {
     const listener = ({ key }: KeyboardEvent) => {
       if (key === 'Enter') onKeydownEnter();
