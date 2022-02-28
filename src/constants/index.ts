@@ -12,6 +12,7 @@ export const ALERT_MESSAGE = {
   NOT_IN_WORD_LIST: 'Not in word list',
   CORRECT: '정답입니다!',
   INCORRECT: '정답 : ',
+  IN_READY: '준비중입니다.',
 };
 
 export const WORD_MAX_LENGTH = 5;

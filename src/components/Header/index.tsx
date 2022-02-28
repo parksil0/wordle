@@ -4,6 +4,7 @@ import MenuIcon from '../../assets/menu.svg';
 import SearchIcon from '../../assets/search.svg';
 import SettingsIcon from '../../assets/settings.svg';
 import StatisticsIcon from '../../assets/statistics.svg';
+import { ALERT_MESSAGE } from '../../constants';
 import AlertPortal, { Alert } from '../Alert';
 import Button from '../Button';
 import Icon from '../Icon';
@@ -15,7 +16,7 @@ const Index = () => {
 
   const onClickIcon = () => {
     setIsShowAlert(true);
-    setMessage('준비중입니다.');
+    setMessage(ALERT_MESSAGE.IN_READY);
   };
 
   useEffect(() => {
