@@ -119,7 +119,7 @@ const Index = () => {
   // board 안의 모든 row에 유효한 단어를 입력했는데도, 답을 찾지 못하면 alert창을 통해 답을 알려주는 로직
   useEffect(() => {
     if (words.length > 5) {
-      printAlertMessage(`${ALERT_MESSAGE}${answer}`);
+      printAlertMessage(`${ALERT_MESSAGE.INCORRECT}${answer}`);
     }
   }, [words]);
 

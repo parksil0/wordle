@@ -136,5 +136,5 @@ test('정답을 맞추지 못하면 정답을 알려주는 alert창을 호출한
     fireEvent.keyDown(container, { key: key });
   });
 
-  expect(getByText(`${ALERT_MESSAGE}apple`)).toBeTruthy();
+  expect(getByText(`${ALERT_MESSAGE.INCORRECT}apple`)).toBeTruthy();
 });
