@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BoxAnimation, BoxState } from '../../types';
@@ -28,33 +28,17 @@ export const AlphabetBox = styled.div<{
 
   ${({ animation }) => {
     if (animation === 'pop') {
-      return `
-        animation: pop 0.3s linear 1;
-        border: 2px solid black;  
+      return css`
+        animation: ${pop} 0.3s linear 1;
+        border: 2px solid black;
       `;
     } else if (animation === 'flip') {
-      return `animation: flip 0.6s linear;
-        animation-fill-mode: backwards;`;
+      return css`
+        animation: ${flip} 0.6s linear;
+        animation-fill-mode: backwards;
+      `;
     }
   }}
-
-  @keyframes pop {
-    50% {
-      transform: scale(1.1);
-    }
-  }
-
-  @keyframes flip {
-    0% {
-      transform: rotateX(0deg);
-    }
-    50% {
-      transform: rotateX(90deg);
-    }
-    100% {
-      transform: rotateX(0deg);
-    }
-  }
 
   ${({ boxState }) => {
     if (!boxState) return;
@@ -79,3 +63,21 @@ const boxStyle = {
     color: white;
   `,
 };
+
+const pop = keyframes`
+  50% {
+    transform: scale(1.1);
+  }
+`;
+
+const flip = keyframes`
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+`;
