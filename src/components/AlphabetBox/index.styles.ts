@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BoxAnimation, BoxState } from '../../types';
@@ -56,23 +57,25 @@ export const AlphabetBox = styled.div<{
   }
 
   ${({ boxState }) => {
-    if (boxState === 'exact')
-      return `
-        background-color: #6aaa64;
-        border: 2px solid #6aaa64;
-        color: white;
-    `;
-    else if (boxState === 'close')
-      return `
-        background-color: #c9b458;
-        border: 2px solid #c9b458;
-        color: white;
-    `;
-    else if (boxState === 'none')
-      return `
-        background-color: #787c7e;
-        border: 2px solid #787c7e;
-        color: white;
-    `;
+    if (!boxState) return;
+    return boxStyle[boxState];
   }}
 `;
+
+const boxStyle = {
+  exact: css`
+    background-color: #6aaa64;
+    border: 2px solid #6aaa64;
+    color: white;
+  `,
+  close: css`
+    background-color: #c9b458;
+    border: 2px solid #c9b458;
+    color: white;
+  `,
+  none: css`
+    background-color: #787c7e;
+    border: 2px solid #787c7e;
+    color: white;
+  `,
+};
