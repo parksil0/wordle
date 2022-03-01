@@ -40,10 +40,7 @@ export const AlphabetBox = styled.div<{
     }
   }}
 
-  ${({ boxState }) => {
-    if (!boxState) return;
-    return boxStyle[boxState];
-  }}
+  ${({ boxState }) => boxState && boxStyle[boxState]}
 `;
 
 const boxStyle = {
