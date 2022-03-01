@@ -2,7 +2,7 @@ import { BoxAnimation, BoxState } from '../../types';
 import { AlphabetBox } from './index.styles';
 
 interface Props {
-  alphabet: string;
+  alphabet: string | null;
   animation?: BoxAnimation;
   boxState?: BoxState;
   dataTestId?: string;

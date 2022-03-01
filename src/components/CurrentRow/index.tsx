@@ -10,7 +10,7 @@ interface Props {
 const index = ({ word, isCurruentRowJiggle }: Props) => {
   const emptyWord =
     word.length < WORD_MAX_LENGTH
-      ? Array.from({ length: WORD_MAX_LENGTH - word.length }, () => '')
+      ? Array.from({ length: WORD_MAX_LENGTH - word.length }, () => null)
       : [];
 
   return (
