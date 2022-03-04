@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 
 import {
   keyboardArray,
@@ -7,8 +7,27 @@ import {
 } from '../../constants';
 import { Grid, KeyboardButton, KeyboardEmptySpace, Row } from './index.styles';
 
-const Index = () => {
-  const [first, second, third] = keyboardArray;
+const [first, second, third] = keyboardArray;
+
+interface Props {
+  onKeydownWord: (key: string) => void;
+  onKeydownEnter: () => void;
+  onKeydownBackspace: () => void;
+}
+
+const Index = ({ onKeydownWord, onKeydownEnter, onKeydownBackspace }: Props) => {
+  // keydown(enter, backspace, a-z) 이벤트 설정
+  useEffect(() => {
+    const listener = ({ key }: KeyboardEvent) => {
+      if (key === 'Enter') onKeydownEnter();
+      else if (keyboardArray.flat().indexOf(key.toUpperCase()) > -1) onKeydownWord(key);
+      else if (key === 'Backspace') onKeydownBackspace();
+    };
+
+    window.addEventListener('keydown', listener);
+    return () => window.removeEventListener('keydown', listener);
+  }, [onKeydownWord, onKeydownEnter, onKeydownBackspace]);
+
   return (
     <Grid>
       <Row>
